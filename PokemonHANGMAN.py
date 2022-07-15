@@ -61,10 +61,10 @@ pokemon = random.choice(words)
 correct = list()
 incorrect = list()
 lettercount = len(set(pokemon))
-wrongcount = 0
+incorrectcount = 0
 
 while(True):
-  print(HANGMANPICS[wrongcount])
+  print(HANGMANPICS[incorrectcount])
 
   for x in range(len(pokemon)):
     if correct.count(pokemon[x]) > 0:
@@ -85,13 +85,13 @@ while(True):
       continue
   else:
     if incorrect.count(prediction) == 0:
-      wrongcount += 1
+      incorrectcount += 1
       incorrect.append(prediction)
     else:
       print('This prediction was made.')
       continue
 
-  print(HANGMANPICS[wrongcount])
+  print(HANGMANPICS[incorrectcount])
 
   for x in range(len(pokemon)):
     if correct.count(pokemon[x]) > 0:
@@ -99,7 +99,7 @@ while(True):
     else:  
       print('_ ', end=' ')
 
-  if wrongcount == 6:
+  if incorrectcount == 6:
     print('\nLOSE')
     print('Pokemon was', pokemon)
     break
