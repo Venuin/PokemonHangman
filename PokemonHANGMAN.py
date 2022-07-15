@@ -91,11 +91,9 @@ while(True):
       correct.append(prediction)
     else:
       print('This prediction was made.')
-      continue
   else:
     if incorrect.count(prediction) == 0:
       incorrectcount += 1
       incorrect.append(prediction)
     else:
       print('This prediction was made.')
-      continue
