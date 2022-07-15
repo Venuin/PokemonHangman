@@ -64,6 +64,7 @@ lettercount = len(set(pokemon))
 incorrectcount = 0
 
 while(True):
+
   print(HANGMANPICS[incorrectcount])
 
   for x in range(len(pokemon)):
@@ -71,6 +72,14 @@ while(True):
       print(pokemon[x], end=' ')
     else:  
       print('_ ', end=' ')
+
+  if incorrectcount == 6:
+    print('\nLOSE')
+    print('Pokemon was', pokemon)
+    break
+  elif len(correct) == lettercount:
+    print('\nWIN')
+    break
 
   print('\nIncorrect predictions: ', incorrect)
 
@@ -90,19 +99,3 @@ while(True):
     else:
       print('This prediction was made.')
       continue
-
-  print(HANGMANPICS[incorrectcount])
-
-  for x in range(len(pokemon)):
-    if correct.count(pokemon[x]) > 0:
-      print(pokemon[x], end=' ')
-    else:  
-      print('_ ', end=' ')
-
-  if incorrectcount == 6:
-    print('\nLOSE')
-    print('Pokemon was', pokemon)
-    break
-  elif len(correct) == lettercount:
-    print('\nWIN')
-    break
